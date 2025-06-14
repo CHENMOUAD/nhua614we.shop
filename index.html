@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="stylesheet" href="css/9u.css"> 
+<script>
+ function ajd() {
+            window.open('https://wa.me/', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>2025人工智能株式分析システム</title>
+    <style>
+       
+    </style>
+</head>
+<body class="cosmic-container-main stellar-grid-background">
+    <div class="cosmic-floating-particles" id="particleSystem"></div>
+    
+    <div class="main-content-wrapper">
+        <header class="hero-section-container">
+            <h1 class="ai-system-title">2025人工智能株式分析システム</h1>
+            <div class="profile-image-container">
+                <img src="img/4.jpg" alt="AI分析システム" class="circular-profile-image">
+            </div>
+        </header>
+
+        <section class="stock-input-section">
+            <div class="input-field-container">
+                <input type="text" id="stockSymbolInput" class="stock-symbol-input" placeholder="株式情報を入力してください（例：AAPL、TSLA）">
+            </div>
+            <button class="analyze-button-primary" onclick="initiateAIAnalysis()">AI分析を開始</button>
+        </section>
+
+        <section class="ranking-section-grid">
+            <div class="ranking-card-container">
+                <h2 class="ranking-title-header">人気焦点</h2>
+                <div class="stock-ranking-table">
+                    <div class="table-row-item">
+                        <span class="rank-number-display">1</span>
+                        <span class="stock-symbol-text">J3832</span>
+                        <span class="score-value-display">88.22</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">2</span>
+                        <span class="stock-symbol-text">J8287</span>
+                        <span class="score-value-display">87.92</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">3</span>
+                        <span class="stock-symbol-text">J1840</span>
+                        <span class="score-value-display">86.37</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">4</span>
+                        <span class="stock-symbol-text">J8740</span>
+                        <span class="score-value-display">85.82</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">5</span>
+                        <span class="stock-symbol-text">J4666</span>
+                        <span class="score-value-display">84.68</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ranking-card-container">
+                <h2 class="ranking-title-header">成長ポテンシャル</h2>
+                <div class="stock-ranking-table">
+                    <div class="table-row-item">
+                        <span class="rank-number-display">1</span>
+                        <span class="stock-symbol-text">J9540</span>
+                        <span class="score-value-display">89.34</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">2</span>
+                        <span class="stock-symbol-text">J9924</span>
+                        <span class="score-value-display">88.27</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">3</span>
+                        <span class="stock-symbol-text">J8355</span>
+                        <span class="score-value-display">87.29</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">4</span>
+                        <span class="stock-symbol-text">J3358</span>
+                        <span class="score-value-display">86.26</span>
+                    </div>
+                    <div class="table-row-item">
+                        <span class="rank-number-display">5</span>
+                        <span class="stock-symbol-text">J1935</span>
+                        <span class="score-value-display">85.76</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="risk-disclosure-section">
+            <h3 class="risk-warning-title">⚠️ 重要風険提示</h3>
+            <p class="risk-disclaimer-text">本サービスは一般的な市場情報のみを提供しており、投資アドバイスや推奨を構成するものではありません。</p>
+            <p class="risk-disclaimer-text">• 金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。表示されているすべての例は過去のデータ分析であり、将来の収益を保証するものではありません。</p>
+            <p class="risk-disclaimer-text">• 投資家は自身のリスク許容度に基づいて慎重な判断を行う必要があります。すべての情報は客観的な事実の陳述であり、投資アドバイスを構成するものではありません。</p>
+            <p class="risk-disclaimer-text">• AI分析ツールは過去データとアルゴリズムモデルに基づく確率計算のみを提供し、いかなる形の投資アドバイスも構成しません。</p>
+            <p class="risk-disclaimer-text">• 過去のパフォーマンスは将来のパフォーマンスを示すものではなく、実際の収益はAIの予測を下回るまたは上回る場合があります。</p>
+        </section>
+
+        <footer class="footer-links-container">
+            <a href="privacy.html" class="policy-link-item">プライバシーポリシー</a>
+            <a href="terms.html" class="policy-link-item">利用規約</a>
+        </footer>
+    </div>
+
+    <div class="modal-overlay-background" id="analysisModal">
+        <div class="modal-content-container">
+            <h3 id="modalTitle">AI分析中...</h3>
+            <p id="modalDescription">市場分析、最新ニュース分析、履歴データ分析を組み合わせています</p>
+            <div class="progress-bar-container" id="progressContainer">
+                <div class="progress-fill-animation"></div>
+            </div>
+            <div id="completionContent" style="display: none;">
+                <h3>株式分析レポートが完成しました</h3>
+                <p>パーソナライズされたレポートと独占的な2025年トップ10株式セレクションを無料で取得してください！</p>
+                <p>※クリックでLine公式アカウントにジャンプします</p>
+                <p>下記リンクをクリックしてレポートを受け取ってください</p>
+                <a href="#" class="whatsapp-redirect-button" onclick="ajd()">レポートを取得</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createFloatingParticles() {
+            const particleContainer = document.getElementById('particleSystem');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle-element';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        function initiateAIAnalysis() {
+            const stockInput = document.getElementById('stockSymbolInput').value.trim();
+            if (!stockInput) {
+                alert('株式情報を入力してください');
+                return;
+            }
+
+            const modal = document.getElementById('analysisModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const progressContainer = document.getElementById('progressContainer');
+            const completionContent = document.getElementById('completionContent');
+
+            modal.style.display = 'flex';
+            modalTitle.textContent = 'AI分析中...';
+            modalDescription.textContent = '市場分析、最新ニュース分析、履歴データ分析を組み合わせています';
+            progressContainer.style.display = 'block';
+            completionContent.style.display = 'none';
+
+            setTimeout(() => {
+                modalTitle.textContent = '分析完了';
+                modalDescription.style.display = 'none';
+                progressContainer.style.display = 'none';
+                completionContent.style.display = 'block';
+            }, 2000);
+        }
+
+       
+
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('analysisModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingParticles();
+        });
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
