@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>
+ function lineContact() {
+            window.open('https://qq.com', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頂級社交平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .breathing {
+            animation: breathing 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes breathing {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #ff4757;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .telegram-bg {
+            background: linear-gradient(135deg, #0088cc, #229ed9);
+        }
+        
+        .line-bg {
+            background: linear-gradient(135deg, #00c300, #00b300);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section {
+            padding: 40px 20px;
+        }
+        
+        .section-1 {
+            min-height: 100vh;
+        }
+        
+        .section-3 {
+            min-height: auto;
+            padding: 60px 20px;
+        }
+        
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .status-online {
+            width: 12px;
+            height: 12px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .verified-badge {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .section-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .section-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .section-3 {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        
+        /* Floating Hearts Animation */
+        .floating-heart {
+            animation: floatHeart 8s ease-in-out infinite;
+            font-size: 24px;
+        }
+        
+        @keyframes floatHeart {
+            0%, 100% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% { 
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+        
+        /* Indicator Animation */
+        .indicator.active {
+            opacity: 1 !important;
+            transform: scale(1.3);
+        }
+        
+        /* Enhanced Carousel Indicators */
+        .carousel-indicators .indicator:hover {
+            opacity: 0.8 !important;
+            transform: scale(1.2);
+        }
+        
+        /* Image Enlargement Modal */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .image-modal.active {
+            display: flex;
+        }
+        
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Radar Animation for Secondary Images */
+        .radar-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .radar-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent 0deg,
+                transparent 270deg,
+                rgba(34, 197, 94, 0.6) 315deg,
+                rgba(34, 197, 94, 0.3) 360deg
+            );
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: radarScan 3s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .radar-container img {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes radarScan {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Enhanced Image Modal with Navigation */
+        .image-modal-enhanced {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .image-modal-enhanced.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-main-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-thumbnails {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .modal-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .modal-thumbnail:hover {
+            transform: scale(1.1);
+            border-color: #22c55e;
+        }
+        
+        .modal-thumbnail.active {
+            border-color: #22c55e;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Icons -->
+    <div class="social-icons">
+        <div class="social-icon line-bg breathing" onclick="f2()">
+            <i class="fab fa-line text-white text-xl"></i>
+            <div class="notification-badge">1</div>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero Carousel -->
+    <div class="section section-1" id="section1">
+        <div class="container mx-auto h-full flex flex-col justify-center relative">
+            <!-- Floating Hearts Animation -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="floating-hearts">
+                    <i class="fas fa-heart absolute text-pink-300 opacity-20 floating-heart" style="left: 10%; animation-delay: 0s;"></i>
+                    <i class="fas fa-heart absolute text-pink-300 opacity-20 floating-heart" style="left: 20%; animation-delay: 2s;"></i>
+                    <i class="fas fa-heart absolute text-pink-300 opacity-20 floating-heart" style="left: 80%; animation-delay: 4s;"></i>
+                    <i class="fas fa-heart absolute text-pink-300 opacity-20 floating-heart" style="left: 90%; animation-delay: 6s;"></i>
+                </div>
+            </div>
+            
+            <!-- Title Section with Enhanced Animation -->
+            <div class="text-center text-white mb-12 relative z-10">
+                <div class="mb-6">
+                    <span class="inline-block bg-gradient-to-r from-pink-400 to-purple-400 text-white px-6 py-2 rounded-full text-sm font-bold mb-4 animate-bounce">
+                        ✨ 頂級品質保證 ✨
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="block text-gradient bg-gradient-to-r from-white via-pink-200 to-white bg-clip-text text-transparent animate-pulse">
+                        高品質
+                    </span>
+                    <span class="block text-4xl md:text-6xl mt-2">
+                        優質女性聚集地
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+                    這裡匯聚了許多高質量的女性，期待與你們的經歷交融，創造美好的時刻
+                </p>
+                
+                <!-- Stats Counter -->
+                <div class="flex justify-center space-x-8 mt-8 text-center">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl px-4 py-3">
+                        <div class="text-2xl font-bold text-yellow-300">1000+</div>
+                        <div class="text-sm opacity-90">活躍用戶</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl px-4 py-3">
+                        <div class="text-2xl font-bold text-green-300">24/7</div>
+                        <div class="text-sm opacity-90">在線服務</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl px-4 py-3">
+                        <div class="text-2xl font-bold text-blue-300">100%</div>
+                        <div class="text-sm opacity-90">真實認證</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced Carousel -->
+            <div class="carousel-container max-w-lg mx-auto w-full relative">
+                <!-- Carousel Indicators -->
+                <div class="flex justify-center mb-4 space-x-2">
+                    <div class="carousel-indicators flex space-x-2">
+                        <span class="indicator active w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer transition-all" onclick="goToSlide(0)"></span>
+                        <span class="indicator w-3 h-3 bg-white rounded-full opacity-30 cursor-pointer transition-all" onclick="goToSlide(1)"></span>
+                        <span class="indicator w-3 h-3 bg-white rounded-full opacity-30 cursor-pointer transition-all" onclick="goToSlide(2)"></span>
+                        <span class="indicator w-3 h-3 bg-white rounded-full opacity-30 cursor-pointer transition-all" onclick="goToSlide(3)"></span>
+                        <span class="indicator w-3 h-3 bg-white rounded-full opacity-30 cursor-pointer transition-all" onclick="goToSlide(4)"></span>
+                        <span class="indicator w-3 h-3 bg-white rounded-full opacity-30 cursor-pointer transition-all" onclick="goToSlide(5)"></span>
+                    </div>
+                </div>
+                
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/1/1.jpg" alt="檔案 1" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                🔥 熱門
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/2/2.jpg" alt="檔案 2" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                ✨ 新人
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/3/3.jpg" alt="檔案 3" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                👑 VIP
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/4/4.jpg" alt="檔案 4" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                ⭐ 精選
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/5/5.jpg" alt="檔案 5" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                💖 推薦
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="relative">
+                            <img src="img/6/6.jpg" alt="檔案 6" class="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-white border-opacity-30">
+                            <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                                🌟 熱選
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button with Enhanced Design -->
+            <div class="text-center mt-12">
+                <button onclick="goToSection2()" class="group relative bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-110 transition-all duration-300 shadow-2xl">
+                    <span class="relative z-10">探索更多精彩檔案</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <i class="fas fa-arrow-down ml-3 animate-bounce"></i>
+                </button>
+                
+                <p class="text-white text-sm mt-4 opacity-75">
+                    <i class="fas fa-lock mr-2"></i>安全可靠 • 隱私保護 • 24小時客服
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Profiles -->
+    <div class="section section-2" id="section2">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-white text-center mb-8">附近推薦檔案</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Profile 1 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/1/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>7分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <div class="radar-container rounded-lg overflow-hidden">
+                                <img src="img/1/2.jpg" alt="次圖" class="w-full h-16 object-cover cursor-pointer hover:opacity-80 transition-opacity" onclick="openEnhancedModal(['img/4.jpg', 'img/5.jpg', 'img/6.jpg'], 0)">
+                            </div>
+                            <div class="radar-container rounded-lg overflow-hidden">
+                                <img src="img/1/3.jpg" alt="次圖" class="w-full h-16 object-cover cursor-pointer hover:opacity-80 transition-opacity" onclick="openEnhancedModal(['img/4.jpg', 'img/5.jpg', 'img/6.jpg'], 1)">
+                            </div>
+                            <div class="radar-container rounded-lg overflow-hidden">
+                                <img src="img/1/4.jpg" alt="次圖" class="w-full h-16 object-cover cursor-pointer hover:opacity-80 transition-opacity" onclick="openEnhancedModal(['img/4.jpg', 'img/5.jpg', 'img/6.jpg'], 2)">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>167cm | <strong>體重：</strong>62kg | <strong>年齡：</strong>22歲</p>
+                            <p><strong>備註：</strong>無套吹簫，舌吻，69</p>
+                            <p><strong>特長：</strong>絲襪制服，鴛鴦浴，待老闆來調教</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 2 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/2/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>2分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/2/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/2/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/2/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>168cm | <strong>體重：</strong>58kg | <strong>年齡：</strong>25歲</p>
+                            <p><strong>備註：</strong>無套吹簫，不限次數，照片絕對本人</p>
+                            <p><strong>特長：</strong>配合度高，聽話，年輕波大</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 3 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/3/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>5分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/3/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/3/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/3/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>161cm | <strong>體重：</strong>62kg | <strong>年齡：</strong>5</p>
+                            <p><strong>備註：</strong>無套吹簫，不限次數，照片絕對本人</p>
+                            <p><strong>特長：</strong>絲襪制服，鴛鴦浴，待老闆來調教</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 4 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/4/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>3分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/4/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/4/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/4/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>171cm | <strong>體重：</strong>61 | <strong>年齡：</strong>26歲</p>
+                            <p><strong>備註：</strong>無套吹簫，皮膚雪白，極品小穴</p>
+                            <p><strong>特長：</strong>絲襪制服，鴛鴦浴，待老闆來調教</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 5 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/5/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>8分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/5/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/5/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/5/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>171cm | <strong>體重：</strong>62kg | <strong>年齡：</strong>26歲</p>
+                            <p><strong>備註：</strong>配合度高，聽話，年輕波大</p>
+                            <p><strong>特長：</strong>無套吹簫，舌吻，69</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 6 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/6/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>4分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/6/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/6/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/6/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>168cm | <strong>體重：</strong>57kg | <strong>年齡：</strong>27歲</p>
+                            <p><strong>備註：</strong>無套吹簫，不限次數，照片絕對本人</p>
+                            <p><strong>特長：</strong>鴛鴦浴，待老闆來調教，年輕波大</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 7 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/7/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>5分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/7/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/7/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/7/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>164cm | <strong>體重：</strong>55kg | <strong>年齡：</strong>25歲</p>
+                            <p><strong>備註：</strong>無套吹簫，皮膚雪白，極品小穴</p>
+                            <p><strong>特長：</strong>鴛鴦浴，待老闆來調教，舌吻，69</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile 8 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/8/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>6分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/8/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/8/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/8/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>168cm | <strong>體重：</strong>57kg | <strong>年齡：</strong>26歲</p>
+                            <p><strong>備註：</strong>無套吹簫，不限次數，照片絕對本人</p>
+                            <p><strong>特長：</strong>鴛鴦浴，待老闆來調教，極品小穴</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+				
+				    <!-- Profile 9 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/9/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>3分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/9/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/9/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/9/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>164cm | <strong>體重：</strong>52kg | <strong>年齡：</strong>23歲</p>
+                            <p><strong>備註：</strong>配合度高，聽話，年輕波大</p>
+                            <p><strong>特長：</strong>無套吹簫，舌吻，69</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+				
+				    <!-- Profile 10 -->
+                <div class="profile-card card-hover">
+                    <div class="relative mb-4">
+                        <img src="img/10/1.jpg" alt="檔案" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute top-3 right-3 verified-badge">高級認證</div>
+                        <div class="absolute bottom-3 left-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg text-sm">
+                            <span class="status-online"></span>1分鐘前在線
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <img src="img/10/2.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/10/3.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                            <img src="img/10/4.jpg" alt="次圖" class="w-full h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="enlargeImage(this.src)">
+                        </div>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>身高：</strong>167cm | <strong>體重：</strong>53kg | <strong>年齡：</strong>21歲</p>
+                            <p><strong>備註：</strong>無套吹簫，不限次數，照片絕對本人</p>
+                            <p><strong>特長：</strong>鴛鴦浴，待老闆來調教，皮膚雪白，極品小穴</p>
+                        </div>
+                        <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition-all">
+                            聯繫她
+                        </button>
+                    </div>
+                </div>
+				
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Contact -->
+    <div class="section section-3" id="section3">
+        <div class="container mx-auto flex items-center justify-center h-full">
+            <div class="text-center text-white max-w-md">
+                <h2 class="text-4xl font-bold mb-8">查看更多資料</h2>
+                <p class="text-xl mb-8">查看更多資料，請點擊下方按鈕</p>
+                
+                <div class="space-y-4">
+                    <button onclick="lineContact()" class="w-full bg-green-500 hover:bg-green-600 text-white py-4 px-8 rounded-2xl font-bold text-lg transition-all transform hover:scale-105 flex items-center justify-center">
+                        <i class="fab fa-line mr-3 text-2xl"></i>
+                        添加 LINE
+                    </button>
+                </div>
+                
+                <div class="mt-8 p-6 glass-effect rounded-2xl">
+                    <p class="text-lg font-bold">🎯 特別優惠</p>
+                    <p class="mt-2">發送2025可優先安排</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Enlargement Modal -->
+    <div class="image-modal" id="imageModal" onclick="closeEnlargedImage()">
+        <img src="" alt="放大圖片" id="enlargedImage">
+    </div>
+
+    <!-- Enhanced Image Modal with Navigation -->
+    <div class="image-modal-enhanced" id="enhancedModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeEnhancedModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <img src="" alt="主圖" class="modal-main-image" id="modalMainImage">
+            <div class="modal-thumbnails" id="modalThumbnails">
+                <!-- Thumbnails will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 3000);
+
+        // Touch support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        document.querySelector('.carousel-container').addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        document.querySelector('.carousel-container').addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) {
+                nextSlide();
+            } else if (endX - startX > 50) {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+        });
+
+        function goToSection2() {
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function goToSection3() {
+            document.getElementById('section3').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function f22s() {
+            window.open('https://line.com', '_blank');
+        }
+
+       
+
+        // Image enlargement functions
+        function enlargeImage(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const enlargedImg = document.getElementById('enlargedImage');
+            
+            enlargedImg.src = imageSrc;
+            modal.classList.add('active');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEnlargedImage() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Enhanced modal functions
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        function openEnhancedModal(images, selectedIndex) {
+            currentImages = images;
+            currentImageIndex = selectedIndex;
+            
+            const modal = document.getElementById('enhancedModal');
+            const mainImage = document.getElementById('modalMainImage');
+            const thumbnailsContainer = document.getElementById('modalThumbnails');
+            
+            // Set main image
+            mainImage.src = images[selectedIndex];
+            
+            // Clear and populate thumbnails
+            thumbnailsContainer.innerHTML = '';
+            images.forEach((imageSrc, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageSrc;
+                thumbnail.className = `modal-thumbnail ${index === selectedIndex ? 'active' : ''}`;
+                thumbnail.onclick = () => switchToImage(index);
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function switchToImage(index) {
+            currentImageIndex = index;
+            const mainImage = document.getElementById('modalMainImage');
+            const thumbnails = document.querySelectorAll('.modal-thumbnail');
+            
+            // Update main image
+            mainImage.src = currentImages[index];
+            
+            // Update thumbnail active state
+            thumbnails.forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+
+        function closeEnhancedModal() {
+            const modal = document.getElementById('enhancedModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content
+        document.getElementById('enhancedModal').addEventListener('click', (e) => {
+            if (e.target.id === 'enhancedModal') {
+                closeEnhancedModal();
+            }
+        });
+
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
