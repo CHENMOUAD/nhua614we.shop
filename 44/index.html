@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script>
+// Line遷移関数
+        function k2() {
+            window.open('https://line.me/', '_blank');
+        }
+
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AI株式教育プラットフォーム - 投資スキル向上</title>
@@ -135,6 +142,11 @@
         .px-12 {
             padding-left: 48px;
             padding-right: 48px;
+        }
+        
+        .px-16 {
+            padding-left: 64px;
+            padding-right: 64px;
         }
         
         .p-4 {
@@ -438,6 +450,26 @@
         
         .pt-16 {
             padding-top: 64px;
+        }
+        
+        .left-1\/2 {
+            left: 50%;
+        }
+        
+        .transform {
+            transform: translateX(-50%);
+        }
+        
+        .-translate-x-1\/2 {
+            transform: translateX(-50%);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
         }
         
         /* カスタムスタイル */
@@ -856,6 +888,13 @@
         </footer>
     </div>
 
+    <!-- 浮動連絡ボタン -->
+    <div class="floating-button">
+        <button onclick="k2()" class="action-button px-8 py-4 text-lg font-bold rounded-full shadow-2xl animate-pulse-breath" style="white-space: nowrap;">
+           今すぐLNEを追加して投資洞察を受け取る
+        </button>
+    </div>
+
 
 
     <!-- モーダル -->
@@ -952,11 +991,7 @@
             }
         });
 
-        // Line遷移関数
-        function k2() {
-            window.open('https://line.me/', '_blank');
-        }
-
+        
         // スクロールアニメーション
         const observerOptions = {
             threshold: 0.1,
