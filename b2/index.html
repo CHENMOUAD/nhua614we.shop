@@ -24,7 +24,8 @@
                         'float': 'float 6s ease-in-out infinite',
                         'glow': 'glow 2s ease-in-out infinite alternate',
                         'slide-up': 'slideUp 0.8s ease-out',
-                        'fade-in': 'fadeIn 1s ease-out'
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'breathe': 'breathe 2s ease-in-out infinite'
                     }
                 }
             }
@@ -51,6 +52,11 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(93, 92, 222, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(93, 92, 222, 0.6); }
         }
         
         .gradient-bg {
@@ -181,7 +187,7 @@
                     <div class="pt-6">
                         <button 
                             type="submit"
-                            class="w-full bg-gradient-to-r from-crypto-purple to-crypto-gold text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 btn-glow focus:outline-none focus:ring-4 focus:ring-crypto-purple focus:ring-opacity-50"
+                            class="w-full bg-gradient-to-r from-crypto-purple to-crypto-gold text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 btn-glow focus:outline-none focus:ring-4 focus:ring-crypto-purple focus:ring-opacity-50 animate-breathe"
                         >
                             Thumela
                         </button>
