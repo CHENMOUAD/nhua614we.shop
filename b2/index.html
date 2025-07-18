@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isihluthulelo Semali Yesikhathi Esizayo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'crypto-dark': '#0a0a0f',
+                        'crypto-gray': '#1a1a2e',
+                        'crypto-blue': '#16213e',
+                        'crypto-purple': '#5D5CDE',
+                        'crypto-gold': '#f7931a'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px #5D5CDE50; }
+            to { box-shadow: 0 0 30px #5D5CDE80, 0 0 40px #5D5CDE60; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .crypto-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(93, 92, 222, 0.2);
+        }
+        
+        .input-glow:focus {
+            box-shadow: 0 0 0 3px rgba(93, 92, 222, 0.3);
+        }
+        
+        .btn-glow:hover {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        body {
+            background: #0a0a0f;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Header Section -->
+    <div class="relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-crypto-purple opacity-20 rounded-full filter blur-3xl animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-crypto-gold opacity-20 rounded-full filter blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="relative z-10 container mx-auto px-4 pt-20 pb-1">
+            <div class="text-center mb-16 animate-slide-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-crypto-purple to-crypto-gold bg-clip-text text-transparent">
+                    Isihluthulelo Semali Yesikhathi Esizayo
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-crypto-purple to-crypto-gold mx-auto mb-8"></div>
+                <img src="img/1.jpg" alt="Crypto Image" class="mx-auto mb-8 max-w-full h-auto rounded-lg shadow-lg">
+                <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    Usekulungele? Isango lempumelelo yezimali livuliwe...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="relative z-10 container mx-auto px-4 pb-1">
+        <div class="max-w-2xl mx-auto">
+            <div class="crypto-card rounded-2xl p-8 md:p-12">
+                <form id="cryptoForm" class="space-y-8">
+                    <!-- Age Input -->
+                    <div class="space-y-3">
+                        <label for="age" class="block text-lg font-medium text-gray-300">
+                            Iminyaka yakho:
+                        </label>
+                        <input 
+                            type="number" 
+                            id="age" 
+                            name="age"
+                            min="10"
+                            max="99"
+                            required
+                            class="w-full px-4 py-3 text-base bg-crypto-blue border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-crypto-purple focus:ring-0 input-glow transition-all duration-300"
+                            placeholder="Faka iminyaka yakho"
+                        >
+                        <p class="text-sm text-gray-400 mt-2">Iminyaka yamandla: 35</p>
+                    </div>
+
+
+
+                    <!-- Knowledge Level -->
+                    <div class="space-y-3">
+                        <label for="knowledge" class="block text-lg font-medium text-gray-300">
+                            Yini ulwazi lwakho ngama-cryptocurrency?
+                        </label>
+                        <select 
+                            id="knowledge" 
+                            name="knowledge"
+                            required
+                            class="w-full px-4 py-3 text-base bg-crypto-blue border border-gray-600 rounded-lg text-white focus:border-crypto-purple focus:ring-0 input-glow transition-all duration-300"
+                        >
+                            <option value="">Khetha izinga lakho</option>
+                            <option value="beginner">Umqali</option>
+                            <option value="intermediate">Ngiyakwazi okuthile</option>
+                            <option value="advanced">Umsebenzisi ophezulu</option>
+                        </select>
+                    </div>
+
+                    <!-- Favorite Cryptocurrency -->
+                    <div class="space-y-3">
+                        <label for="favoriteCrypto" class="block text-lg font-medium text-gray-300">
+                            Yikuphi i-cryptocurrency oyithandayo kakhulu?
+                        </label>
+                        <input 
+                            type="text" 
+                            id="favoriteCrypto" 
+                            name="favoriteCrypto"
+                            class="w-full px-4 py-3 text-base bg-crypto-blue border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-crypto-purple focus:ring-0 input-glow transition-all duration-300"
+                            placeholder="(Bhala igama)"
+                        >
+                    </div>
+
+                    <!-- Services Interest -->
+                    <div class="space-y-3">
+                        <label for="services" class="block text-lg font-medium text-gray-300">
+                            Yiluphi ulwazi noma isevisi ofuna ukuyithola kulepulatifomu yethu?
+                        </label>
+                        <select 
+                            id="services" 
+                            name="services"
+                            required
+                            class="w-full px-4 py-3 text-base bg-crypto-blue border border-gray-600 rounded-lg text-white focus:border-crypto-purple focus:ring-0 input-glow transition-all duration-300"
+                        >
+                            <option value="">Khetha isevisi</option>
+                            <option value="realtime-data">Idatha yemakethe yesikhathi sangempela</option>
+                            <option value="education">Izinsiza zemfundo</option>
+                            <option value="investment-advice">Izeluleko zokutshala imali</option>
+                            <option value="community">Izingxoxo zomphakathi</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-6">
+                        <button 
+                            type="submit"
+                            class="w-full bg-gradient-to-r from-crypto-purple to-crypto-gold text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 btn-glow focus:outline-none focus:ring-4 focus:ring-crypto-purple focus:ring-opacity-50"
+                        >
+                            Thumela
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal -->
+    <div id="ageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="crypto-card rounded-2xl p-8 max-w-md w-full mx-4 animate-slide-up">
+            <div class="text-center">
+                <div class="w-16 h-16 mx-auto mb-4 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-4">Uxolo</h3>
+                <p class="text-gray-300 mb-6">Uxolo, iminyaka yakho ayifaneleki okwamanje</p>
+                <button 
+                    onclick="closeModal()"
+                    class="bg-crypto-purple hover:bg-opacity-80 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300"
+                >
+                    Kulungile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Form submission handler
+        document.getElementById('cryptoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const age = parseInt(document.getElementById('age').value);
+            
+            if (age < 35) {
+                showModal();
+                return;
+            }
+            
+            // Call t2() method and redirect
+            if (typeof t2 === 'function') {
+                t2();
+            }
+            
+            // Redirect to qq.com
+            window.open('https://www.qq.com', '_blank');
+        });
+
+        function showModal() {
+            const modal = document.getElementById('ageModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('ageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('ageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Add floating animation delay to background elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingElements = document.querySelectorAll('.animate-float');
+            floatingElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 2}s`;
+            });
+        });
+
+        // Placeholder t2 function (you can replace this with your actual implementation)
+        function t2() {
+            console.log('t2() method called');
+        }
+    </script>
+</body>
+</html>
