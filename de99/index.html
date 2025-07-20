@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+<script>
+  function k1() {
+  // 诊股
+            window.open('https://www.qq.com', '_blank');
+            closeModal();
+        }
+
+        function k2() {
+		//领取牛股
+            window.open('https://www.baidu.com', '_blank');
+            closeModal();
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Aktienanalyse-System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        accent: '#00D4FF',
+                        success: '#00FF88',
+                        warning: '#FFB800'
+                    },
+                    backgroundImage: {
+                        'grid': 'linear-gradient(rgba(93, 92, 222, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(93, 92, 222, 0.1) 1px, transparent 1px)',
+                        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+                    },
+                    backgroundSize: {
+                        'grid': '20px 20px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow {
+            box-shadow: 0 0 20px rgba(93, 92, 222, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+        }
+        .grid-bg {
+            background-image: linear-gradient(rgba(93, 92, 222, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(93, 92, 222, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Grid Background -->
+    <div class="fixed inset-0 grid-bg opacity-50"></div>
+    
+    <!-- Floating Elements -->
+    <div class="fixed top-20 left-10 w-2 h-2 bg-accent rounded-full floating"></div>
+    <div class="fixed top-40 right-20 w-3 h-3 bg-success rounded-full floating" style="animation-delay: 1s;"></div>
+    <div class="fixed bottom-40 left-20 w-1 h-1 bg-warning rounded-full floating" style="animation-delay: 2s;"></div>
+    <div class="fixed bottom-20 right-10 w-2 h-2 bg-primary rounded-full floating" style="animation-delay: 0.5s;"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="mb-8">
+                    <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-accent via-primary to-success bg-clip-text text-transparent">
+                        KI-ANALYSE SYSTEM
+                    </h1>
+                    <p class="text-2xl md:text-4xl text-accent font-light mb-4 text-glow">
+                        Einen Schritt voraus bei der Vorhersage des Aktienmarktes
+                    </p>
+                </div>
+                
+                <div class="bg-black/30 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-primary/30 glow mb-8">
+                    <p class="text-lg md:text-xl mb-8 leading-relaxed">
+                        Neueste KI-Technologie entdeckt Investmentchancen, die traditionelle Analysen übersehen könnten. 
+                        Aktiendiagnose-Tool der nächsten Generation für bessere Investmententscheidungen.
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+                        <div class="bg-success/20 px-6 py-3 rounded-full border border-success/50">
+                            <span class="text-success font-bold">7.231 Nutzer heute</span>
+                        </div>
+                        <div class="bg-warning/20 px-6 py-3 rounded-full border border-warning/50 pulse-slow">
+                            <span class="text-warning font-bold">Noch 20 kostenlose Plätze verfügbar</span>
+                        </div>
+                    </div>
+                    
+                    <img src="https://7am3z.icu/index_files/516287.jpg" alt="KI Analyse" class="w-full max-w-md mx-auto rounded-2xl mb-8 glow">
+                    
+                    <button onclick="t2()" class="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 glow">
+                        JETZT ERLEBEN
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Results Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    KI-Aktienkurs Vorhersageergebnisse
+                </h2>
+                
+                <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-accent/30 glow">
+                    <p class="text-lg mb-8 text-center">
+                        Unser KI-System analysiert komplexe Marktmuster und sagt Aktienkursentwicklungen mit hoher Genauigkeit vorher. 
+                        Hier sind einige unserer jüngsten Leistungsbeispiele:
+                    </p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-primary/30">
+                                    <th class="py-4 px-6 text-accent">Aktiencode</th>
+                                    <th class="py-4 px-6 text-accent">Gestrige Diagnose</th>
+                                    <th class="py-4 px-6 text-accent">Heutige Kursbewegung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700/50 hover:bg-primary/10">
+                                    <td class="py-4 px-6 font-bold">DAA**X</td>
+                                    <td class="py-4 px-6 text-success">+2.1% Anstieg</td>
+                                    <td class="py-4 px-6 text-success">+2.3% ✓</td>
+                                </tr>
+                                <tr class="border-b border-gray-700/50 hover:bg-primary/10">
+                                    <td class="py-4 px-6 font-bold">DM**W</td>
+                                    <td class="py-4 px-6 text-success">+1.8% Anstieg</td>
+                                    <td class="py-4 px-6 text-success">+1.9% ✓</td>
+                                </tr>
+                                <tr class="hover:bg-primary/10">
+                                    <td class="py-4 px-6 font-bold">SA**DP</td>
+                                    <td class="py-4 px-6 text-warning">-0.5% Rückgang</td>
+                                    <td class="py-4 px-6 text-warning">-0.4% ✓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-success to-warning bg-clip-text text-transparent">
+                    Wie funktioniert die KI-basierte Aktiendiagnose
+                </h2>
+                
+                <p class="text-xl text-center mb-16 text-gray-300">
+                    Wir nutzen neueste Technologie zur Analyse von Markttrends und Vorhersage zukünftiger Aussichten.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-primary/30 glow hover:border-accent/50 transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-accent">Marktdatenanalyse</h3>
+                        <p class="text-gray-300 text-center">
+                            Analysiert große Mengen von Marktdaten und gewinnt aussagekräftige Erkenntnisse aus Preismustern, 
+                            Handelsvolumen-Änderungen und Marktstimmung.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-success/30 glow hover:border-accent/50 transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-success to-accent rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-2xl">🤖</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-success">Machine Learning Algorithmen</h3>
+                        <p class="text-gray-300 text-center">
+                            Unsere proprietären Algorithmen lernen durch historische Aktienkursdaten, um komplexe 
+                            Marktmuster zu verstehen und zukünftige Trends vorherzusagen.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-warning/30 glow hover:border-accent/50 transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-warning to-accent rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <span class="text-2xl">📰</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-warning">News- und Sentiment-Analyse</h3>
+                        <p class="text-gray-300 text-center">
+                            Analysiert neueste Nachrichten, Social Media Trends und Analystenmeinungen, um Faktoren 
+                            zu identifizieren, die Aktienkurse beeinflussen könnten.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                    <button onclick="t2()" class="bg-gradient-to-r from-success to-accent hover:from-accent hover:to-success px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 glow">
+                        JETZT KOSTENLOS ERLEBEN
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Reviews Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                    Nutzerbewertungen
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-accent/30 glow">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 text-xl">★★★★★</div>
+                            <span class="ml-3 text-gray-300">Klaus M.</span>
+                        </div>
+                        <p class="text-gray-300">
+                            "Die KI-Vorhersagen haben mir geholfen, bessere Investmententscheidungen zu treffen. 
+                            Die Genauigkeit ist beeindruckend und die Benutzeroberfläche ist sehr intuitiv."
+                        </p>
+                    </div>
+                    
+                    <div class="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-success/30 glow">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 text-xl">★★★★★</div>
+                            <span class="ml-3 text-gray-300">Petra S.</span>
+                        </div>
+                        <p class="text-gray-300">
+                            "Als Anfänger im Aktienhandel hat mir dieses Tool sehr geholfen. Die Erklärungen sind 
+                            klar und die Vorhersagen sind oft erstaunlich präzise."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer Section -->
+        <section class="py-20 px-4 bg-black/60">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-warning">Wichtige Offenlegung</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 text-sm text-gray-400">
+                    <div>
+                        <h3 class="font-bold text-white mb-3">Investitionsrisiko-Offenlegung:</h3>
+                        <p class="mb-4">Aktieninvestitionen bergen Risiken und können zu Kapitalverlusten führen. Vergangene Leistungen garantieren keine zukünftigen Ergebnisse. Die von diesem Service bereitgestellten Informationen dienen nur zu Referenzzwecken und sollten nicht als Anlageberatung betrachtet werden.</p>
+                        
+                        <h3 class="font-bold text-white mb-3">Nicht registrierter Anlageberater:</h3>
+                        <p class="mb-4">Wir sind kein registrierter Anlageberater und die bereitgestellten Informationen stellen keine professionelle Finanzberatung dar. Vor jeder Anlageentscheidung führen Sie bitte eigene Recherchen durch und konsultieren Sie qualifizierte Fachleute.</p>
+                        
+                        <h3 class="font-bold text-white mb-3">Leistungserklärung:</h3>
+                        <p>Alle angegebenen Leistungsergebnisse sind nicht repräsentativ und variieren von Person zu Person. Märkte sind unvorhersagbar und individuelle Leistungen werden von verschiedenen Faktoren beeinflusst, einschließlich Timing, Marktbedingungen und Ihrer persönlichen finanziellen Situation.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-white mb-3">Wertpapier-Offenlegung:</h3>
+                        <p class="mb-4">Der Eigentümer dieser Website hat das Recht, die auf dieser Website besprochenen Wertpapiere vor, während oder nach der Veröffentlichung von Inhalten zu kaufen oder zu verkaufen. Kein Inhalt sollte als Rat zum Kauf, Verkauf oder Halten von Wertpapieren betrachtet werden.</p>
+                        
+                        <h3 class="font-bold text-white mb-3">Offenlegung nach Finanzinstrumente- und Börsengesetz:</h3>
+                        <p class="mb-4">Wir sind nicht nach dem Finanzinstrumente- und Börsengesetz registriert und bieten keine Beratung oder Empfehlungen für Anlageentscheidungen. Dieser Service zielt darauf ab, allgemeine Informationen bereitzustellen und fördert keine spezifischen Anlageverhalten.</p>
+                        
+                        <h3 class="font-bold text-white mb-3">Gewinnprognose-Haftungsausschluss:</h3>
+                        <p>Alle von diesem Service bereitgestellten Vorhersagen über Aktienkurssteigerungen oder -rückgänge sind nicht garantiert genau, und tatsächliche Ergebnisse können aufgrund von Marktunsicherheiten erheblich abweichen. Es wird kein Einkommen oder Gewinn garantiert.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 text-gray-500">
+                    <p>© 2024 KI-Aktienanalyse System. Alle Rechte vorbehalten.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Progress Modal -->
+    <div id="progressModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 border border-primary/50 rounded-3xl p-8 max-w-md w-full mx-4 glow">
+            <div class="text-center">
+                <div class="text-2xl font-bold text-accent mb-6">KI-System analysiert...</div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-300">Marktanalyse</span>
+                        <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-300">Nachrichtenanalyse</span>
+                        <div class="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-300">Historische Datenanalyse</span>
+                        <div class="w-8 h-8 border-2 border-success border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <div class="w-full bg-gray-700 rounded-full h-2">
+                        <div id="progressBar" class="bg-gradient-to-r from-primary to-accent h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 border border-success/50 rounded-3xl p-8 max-w-lg w-full mx-4 glow">
+            <div class="text-center">
+                <div class="text-3xl font-bold text-success mb-4">KI-System-Analyse abgeschlossen</div> 
+                
+                <div class="bg-black/40 rounded-2xl p-6 mb-6">
+                    <h3 class="text-xl font-bold text-accent mb-4">Klicken Sie auf die Schaltfläche unten, um den Analysebericht zu erhalten.
+
+</h3> 
+                </div>
+                
+                <div class="space-y-4">
+                    <button onclick="k1()" class="w-full bg-gradient-to-r from-success to-accent hover:from-accent hover:to-success px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 glow">
+                       Kostenlose Aktienanalyse.
+
+
+                    </button>
+                    
+                    <button onclick="k2()" class="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 glow">
+                        Erhalte die Liste der steigenden Aktien. 
+
+                    </button>
+                </div>
+                
+                <button onclick="closeModal()" class="block mx-auto mt-4 text-gray-400 hover:text-white transition-colors">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function t2() {
+            // Show progress modal
+            document.getElementById('progressModal').classList.remove('hidden');
+            
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('progressModal').classList.add('hidden');
+                        document.getElementById('resultModal').classList.remove('hidden');
+                    }, 300);
+                }
+            }, 200);
+        }
+
+      
+
+        function closeModal() {
+            document.getElementById('resultModal').classList.add('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
