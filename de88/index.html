@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Aktieninvestment Erfolgsgeheimnisse</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            --secondary-gradient: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+            --accent-gradient: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+            --warning-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
+            --neutral-dark: #1f2937;
+            --neutral-medium: #6b7280;
+            --neutral-light: #f3f4f6;
+            --surface-primary: #ffffff;
+            --surface-secondary: #f8fafc;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --shadow-primary: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --border-radius-small: 8px;
+            --border-radius-medium: 12px;
+            --border-radius-large: 16px;
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(180deg, var(--surface-secondary) 0%, var(--surface-primary) 100%);
+            overflow-x: hidden;
+        }
+
+        .container-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-padding--reduced {
+            padding: 60px 0;
+        }
+
+        .hero-section {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .headline-primary {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .subheadline-text {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-large);
+            padding: 32px;
+            margin: 40px auto;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-unit {
+            background: var(--surface-primary);
+            color: var(--text-primary);
+            padding: 16px 20px;
+            border-radius: var(--border-radius-medium);
+            text-align: center;
+            min-width: 80px;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .countdown-text {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            background: var(--secondary-gradient);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius-medium);
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .features-section {
+            background: var(--surface-primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--surface-secondary);
+            padding: 40px;
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-primary);
+            transition: var(--transition-base);
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .hero-image-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .hero-content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-elevated);
+            max-width: 500px;
+        }
+
+        .advantages-section {
+            background: var(--surface-secondary);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .advantage-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .advantage-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .testimonials-section {
+            background: var(--surface-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--surface-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-primary);
+            border-left: 4px solid #10b981;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .final-cta-section {
+            background: var(--warning-gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .disclaimer-section {
+            background: var(--neutral-dark);
+            color: white;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        .disclaimer-content {
+            line-height: 1.8;
+        }
+
+        .disclaimer-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #fbbf24;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+        }
+
+        .footer-links a {
+            color: #93c5fd;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-elevated);
+            position: relative;
+            animation: breathe 2s ease-in-out infinite;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMzLjY4IDYuMzJDMjkuOTUgMi41OSAyNS4xMyAwLjUgMjAuMDEgMC41QzkuMDYgMC41IDAuMjcgOS4yOSAwLjI2IDIwLjI0QzAuMjYgMjMuODQgMS4yNCAyNy4zNCAzLjIzIDMwLjM4TDAuMDIgMzkuNUw5LjQzIDM2LjM2QzEyLjM1IDM4LjE3IDE1LjY1IDM5LjEzIDIwLjAxIDM5LjEzSDIwLjAxQzMwLjk2IDM5LjEzIDM5Ljc0IDMwLjM0IDM5Ljc0IDE5LjM5QzM5Ljc0IDE0LjI3IDM3LjY1IDkuNDUgMzMuNjggNi4zMlpNMzAuNTMgMjcuNDFDMjkuODMgMjkuMDYgMjcuNDcgMzAuNDMgMjUuNSAzMC43OEMyNC4wMSAzMS4wMSAyMi4xNSAzMS4xOCAxNy45OCAyOS4zNkMxMi4wOSAyNi44IDguMDQgMjAuNjQgNy43OSAyMC4yMkM3LjU1IDE5LjggNS43MiAxNy4zIDUuNzIgMTQuNzNDNS43MiAxMi4xNiA3LjAyIDEwLjg1IDcuNjcgMTAuMTdDOC4xOSA5LjY0IDguODYgOS40OSA5LjM3IDkuNDlDOS41NSA5LjQ5IDkuNzUgOS41IDkuOTQgOS41MUMxMC42MSA5LjUyIDEwLjk2IDkuNyAxMS4zIDEwLjU1TDEyLjcyIDEzLjdDMTIuOTQgMTQuMTYgMTMuMDEgMTQuNzMgMTIuNzIgMTUuMjJDMTIuNDUgMTUuNjggMTIuMjYgMTUuODcgMTEuOSAxNi4yNUMxMS41NyAxNi41OSAxMS4yOCAxNi44NyAxMS4yOCAxNy41MkMxMS4yOCAxNy44OSAxMS40IDE4LjM4IDEyLjI3IDE5LjY1QzEzLjc3IDIyLjM4IDE1LjM3IDI0LjIxIDE4LjE5IDI1LjY5QzE5LjU5IDI2LjQzIDIwLjI1IDI2LjU5IDIxLjA5IDI2Ljc3QzIxLjUzIDI2Ljg2IDIyLjAzIDI2Ljc1IDIyLjQgMjYuNDZDMjMuMDMgMjUuOTUgMjMuOCAyNS4zMSAyNC41OCAyNC42OEMyNC45NCAyNC4zNSAyNS41MyAyNC4xOSAyNS45NCAyNC4zNUMyNi42IDI0LjYxIDI4LjU1IDI1LjU3IDI5LjIzIDI1LjkxQzI5LjkgMjYuMjUgMzAuMzcgMjYuNDIgMzAuNTMgMjYuNjhDMzAuNjkgMjYuOTQgMzAuNjkgMjcuNjcgMzAuNTMgMjcuNDFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+            background-size: 40px 40px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .whatsapp-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc2626;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: var(--secondary-gradient);
+            padding: 16px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .floating-cta-button {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius-medium);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: breathe 3s ease-in-out infinite;
+            transition: var(--transition-base);
+        }
+
+        .floating-cta-button:hover {
+            background: white;
+            color: #dc2626;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            .container-wrapper {
+                padding: 0 16px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-display {
+                gap: 15px;
+            }
+            
+            .countdown-unit {
+                min-width: 70px;
+                padding: 12px 16px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .whatsapp-float {
+                right: 15px;
+            }
+            
+            .whatsapp-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-cta {
+                padding: 12px;
+            }
+            
+            .floating-cta-button {
+                font-size: 1rem;
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+    <div class="whatsapp-float" onclick="k2()">
+        <div class="whatsapp-icon">
+            <span>💬</span>
+            <div class="whatsapp-badge">1</div>
+        </div>
+    </div>
+-->
+    <section class="hero-section section-padding">
+        <div class="container-wrapper">
+            <div class="hero-content">
+                <h1 class="headline-primary">Meistern Sie die Erfolgsgeheimnisse des Aktieninvestments</h1>
+                <p class="subheadline-text">
+                    Die meisten Investoren glauben, dass sie nur auf Nachrichten und Gerüchte angewiesen sind, um gute Aktien zu finden. Aber die Realität ist, dass dieser Ansatz Sie oft die wirklichen Chancen verpassen lässt. Treten Sie kostenlos unserer Investment-Community bei.
+                </p>
+
+                <div class="countdown-container">
+                    <div class="countdown-label">Noch verbleibende Zeit:</div>
+                    <div class="countdown-display">
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="minutes">30</span>
+                            <span class="countdown-text">Min</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-text">Sek</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="milliseconds">000</span>
+                            <span class="countdown-text">Ms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image-section">
+                    <img src="img/5.jpg" alt="Investment Analyse" class="hero-content-image">
+                </div>
+
+                <button class="cta-button" onclick="k2()">
+                    Sofort Aktien-Liste erhalten
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section section-padding">
+        <div class="container-wrapper">
+            <h2 class="section-title">Profitieren Sie von datengestützten Investmentstrategien</h2>
+            <p class="section-subtitle">
+                Studien zeigen, dass datengestützte Investmentstrategien die Anlagerendite erheblich steigern können. Treten Sie unserer professionellen Investoren-Community bei und erhalten Sie:
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Wöchentliche Aktienempfehlungen</h3>
+                    <p class="feature-description">
+                        Wir teilen wöchentlich streng analysierte Aktienlisten mit erwarteten Renditen von 10% oder höher. Unser Expertenteam hilft Ihnen dabei, die besten Investmentmöglichkeiten zu identifizieren.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Investmentstrategien & Techniken lernen</h3>
+                    <p class="feature-description">
+                        Wir empfehlen nicht nur Aktien, sondern lehren Sie auch, wie Sie mit finanziell stabilen Aktien Gewinne erzielen können.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Austausch mit gleichgesinnten Investoren</h3>
+                    <p class="feature-description">
+                        In unserer Community tauschen Sie sich mit anderen Investoren aus und teilen Erkenntnisse. Durch Diskussionen erhalten Sie wertvolle Investment-Inspiration und Vertrauen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="image-section">
+                <img src="img/4.jpg" alt="Investment Analyse" class="content-image">
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="cta-button" onclick="k2()">
+                    Wöchentliche Hochrendite-Aktienempfehlungen erhalten
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages-section section-padding">
+        <div class="container-wrapper">
+            <h2 class="section-title">Warum unsere Aktienhandelsstrategien wählen</h2>
+            <p class="section-subtitle">Entdecken Sie unsere Vorteile gegenüber anderen Handelsplattformen</p>
+
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">📈</div>
+                    <h3 class="advantage-title">Datengestützte Analyse</h3>
+                    <p class="advantage-description">
+                        Unsere proprietären Algorithmen analysieren Markttrends und historische Daten, um potenzielle Chancen mit höheren Erfolgswahrscheinlichkeiten zu identifizieren.
+                    </p>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="advantage-icon">👨‍💼</div>
+                    <h3 class="advantage-title">Expertenberatung</h3>
+                    <p class="advantage-description">
+                        Erhalten Sie personalisierte Beratung von unserem erfahrenen Team von Finanzberatern mit jahrzehntelanger Erfahrung am deutschen Aktienmarkt.
+                    </p>
+                </div>
+
+                <div class="advantage-item">
+                    <div class="advantage-icon">📚</div>
+                    <h3 class="advantage-title">Umfassende Bildung</h3>
+                    <p class="advantage-description">
+                        Von Anfängern bis zu fortgeschrittenen Händlern - unsere Bildungsressourcen helfen Ihnen dabei, Wissen und Vertrauen in Ihrem eigenen Tempo aufzubauen.
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="cta-button" onclick="k2()">
+                    Experten für Aktiendiagnose kontaktieren
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section section-padding--reduced">
+        <div class="container-wrapper">
+            <h2 class="section-title">Was unsere Mitglieder sagen</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Die Analyse-Tools haben mir geholfen, meine Investmentrendite um 25% zu steigern."
+                    </p>
+                    <div class="testimonial-author">- Michael S., München</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Endlich eine Community, die auf fundierte Daten statt auf Spekulationen setzt."
+                    </p>
+                    <div class="testimonial-author">- Anna K., Berlin</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Die wöchentlichen Empfehlungen sind präzise und gut recherchiert."
+                    </p>
+                    <div class="testimonial-author">- Thomas M., Hamburg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-section section-padding">
+        <div class="container-wrapper">
+            <h2 class="headline-primary">Handeln Sie jetzt und verändern Sie Ihre Investment-Zukunft!</h2>
+            <p class="subheadline-text">
+                Zögern Sie nicht länger, die Chance liegt vor Ihnen! Klicken Sie auf den Button unten, treten Sie unserer professionellen Investoren-Community bei und beginnen Sie Ihre erfolgreiche Investment-Reise!
+            </p>
+            <button class="cta-button" onclick="k2()" style="background: white; color: #d97706; margin-top: 30px;">
+                Sofort beitreten und Hochrendite-Aktienempfehlungen erhalten!
+            </button>
+        </div>
+    </section>
+
+    <section class="disclaimer-section">
+        <div class="container-wrapper">
+            <div class="disclaimer-content">
+                <div class="disclaimer-title">⚠️ Wichtiger Risikohinweis</div>
+                <p><strong>*Dieser Service dient nur zu Referenzzwecken und bietet keine Anlageberatung oder Finanzprodukt-Handelsdienstleistungen.</strong></p>
+                <p><strong>*Die bereitgestellten Informationen dienen nur zu Referenzzwecken und sollten nicht als Grundlage für Anlageentscheidungen verwendet werden.</strong></p>
+                <p><strong>*Das Risiko endgültiger Anlageentscheidungen liegt bei Ihnen.</strong></p>
+                <p><strong>*Die Genauigkeit der Daten wird nicht garantiert.</strong></p>
+                <div class="footer-links">
+                    <a href="https://www.baidu.com" target="_blank">Datenschutzrichtlinie</a>
+                    <a href="https://www.baidu.com" target="_blank">Nutzungsvereinbarung</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-cta">
+        <button class="floating-cta-button" onclick="k2()">
+            Jetzt Investment-Community beitreten
+        </button>
+    </div>
+
+    <script>
+        function k2() {
+            window.open('https://wa.me/', '_blank');
+        }
+
+        let startTime = Date.now();
+        let totalTime = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+        function updateCountdown() {
+            const elapsed = Date.now() - startTime;
+            const remaining = Math.max(0, totalTime - elapsed);
+            
+            const minutes = Math.floor(remaining / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            const milliseconds = Math.floor((remaining % 1000) / 10);
+            
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('milliseconds').textContent = String(milliseconds).padStart(2, '0') + '0';
+            
+            if (remaining <= 0) {
+                startTime = Date.now(); // Reset countdown
+            }
+        }
+
+        setInterval(updateCountdown, 50);
+        updateCountdown();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerConfig = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerConfig);
+
+            const animateElements = document.querySelectorAll('.feature-card, .advantage-item, .testimonial-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
